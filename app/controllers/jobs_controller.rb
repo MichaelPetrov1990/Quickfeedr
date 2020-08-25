@@ -1,10 +1,14 @@
 class JobsController < ApplicationController
   def index
+    if params[:query].present?
+      @jobs = Job.search_by_title_and_location(params[:query])
+    else
       @jobs = Job.all
+    end
   end
 
   def show
-    @job = Jobs.find(params[:id])
+    @job = Job.find(params[:id])
   end
 
   def new
