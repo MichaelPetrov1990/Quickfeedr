@@ -12,6 +12,7 @@
 </div>
 
 
+
 <div class="row">
   <% @jobs.each do |job| %>
   <div class="example-1 card">
@@ -39,3 +40,6 @@
   </div>
   <% end %>
 </div>
+
+<button><%= link_to "Create a job listing", new_job_path %></button>
+
