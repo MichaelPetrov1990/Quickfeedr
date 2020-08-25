@@ -1,10 +1,6 @@
 class JobsController < ApplicationController
   def index
-    if params[:query].present?
-      @jobs = Job.dashboard_search(params[:query])
-    else
       @jobs = Job.all
-    end
   end
 
   def show
@@ -21,8 +17,8 @@ class JobsController < ApplicationController
     if @job.save!
       redirect_to jobs_path
     else
-    flash[:alert] = @job.errors.messages
-    render :new
+      flash[:alert] = @job.errors.messages
+      render :new
     end
   end
 
@@ -43,6 +39,7 @@ class JobsController < ApplicationController
   end
 
   private
+
   def job_params
     params.require(:job).permit(:title, :location, :salary, :description)
   end
