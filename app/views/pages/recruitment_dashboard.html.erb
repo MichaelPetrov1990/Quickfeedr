@@ -1,3 +1,41 @@
-<h1>recruitment_dashboard</h1>
+<div class="container">
+  <h1>Dashboard</h1>
+  <div>
+    <div>
+      <button><%= link_to "create a job listing", new_job_path %></button>
+    </div>
+      <div>
+        <% @jobs.each do |job| %>
+        <% end %>
+      </div>
+  </div>
+</div>
 
-<button><%= link_to "create a job listing", new_job_path %></button>
+
+<div class="row">
+  <% @jobs.each do |job| %>
+  <div class="example-1 card">
+    <div class="wrapper">
+
+      <div class="date">
+        <span class="day">12</span>
+        <span class="month">Aug</span>
+        <span class="year">2016</span>
+      </div>
+
+     <div class="image">
+       <img class="book-image" src="https://unsplash.com/photos/kOuCX7fh50U"/>
+     </div>
+
+      <div class="data">
+        <div class="content">
+          <span class="author"><%= job.title %></span>
+          <h1 class="title"><a href="#" class="cardTitle">Boxing icon has the will for a couple more fights</a></h1>
+          <p class="text"><%= job.description %></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <% end %>
+</div>
