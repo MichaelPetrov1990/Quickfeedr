@@ -15,6 +15,7 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :photo, label: "profile picture", as: :file %>
     <%= f.input :applicant, label: "Register as an applicant", check_box_tag: "true", class: "check-applicant"  %>
   </div>
 
