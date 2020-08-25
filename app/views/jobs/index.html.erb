@@ -1,21 +1,32 @@
 <div class="container">
 <h1>All Jobs</h1>
 
-<div class="search">
-    <div class="search-form">
-      <%= form_tag jobs_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "search for jobs"%>
-    </div>
-      <i class="fas fa-search"><%= submit_tag "Search", class: "btn"%></i>
-  <div>
+  <div class="search">
+      <div class="search-form">
+        <%= form_tag jobs_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "search for jobs"%>
+      </div>
+        <i class="fas fa-search"><%= submit_tag "Search", class: "btn"%></i>
+  </div>
+</div>
     <% end %>
 
-<% @jobs.each do |job| %>
-<h2><%= job.title %><%= job.location %></h2>
-<h3><%= job.salary %></h3>
-<p><%= job.description %></p>
-<% end %>
+<br>
+
+<div class="job-card col-6">
+    <% @jobs.each do |job| %>
+      <%= link_to "#", class: 'job-link' do %>
+        <h2><%= job.title %><%= job.location %></h2>
+        <h3><%= job.salary %></h3>
+        <p><%= job.description %></p>
+      <% end %>
+  <% end %>
 </div>
+
+<div class="job-location col-6">
+
+</div>
+
