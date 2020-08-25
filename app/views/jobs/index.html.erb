@@ -1,5 +1,18 @@
 <div class="container">
 <h1>All Jobs</h1>
+
+<div class="search">
+    <div class="search-form">
+      <%= form_tag jobs_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "search for jobs"%>
+    </div>
+      <i class="fas fa-search"><%= submit_tag "Search", class: "btn"%></i>
+  <div>
+    <% end %>
+
 <% @jobs.each do |job| %>
 <h2><%= job.title %><%= job.location %></h2>
 <h3><%= job.salary %></h3>
