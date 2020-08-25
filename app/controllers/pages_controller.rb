@@ -5,5 +5,13 @@ class PagesController < ApplicationController
   end
 
   def recruitment_dashboard
+    @user = current_user
+    @jobs = Job.where(user: @user)
+  end
+
+
+  private
+
+  def find_jobs
   end
 end
