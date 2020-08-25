@@ -1,6 +1,10 @@
 class JobsController < ApplicationController
   def index
-    @jobs = Job.all
+    if params[:query].present?
+      @jobs = Job.dashboard_search(params[:query])
+    else
+      @jobs = Job.all
+    end
   end
 
   def show
