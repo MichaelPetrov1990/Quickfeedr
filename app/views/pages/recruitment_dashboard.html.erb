@@ -1,6 +1,18 @@
 <div class="container">
   <h1>Dashboard</h1>
+
+   <div class="search">
+    <div class="search-form">
+      <%= form_tag dashboard_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "search for jobs"%>
+    </div>
+      <i class="fas fa-search"><%= submit_tag "Search", class: "btn"%></i>
   <div>
+    <% end %>
+
     <div>
       <button><%= link_to "create a job listing", new_job_path %></button>
     </div>
