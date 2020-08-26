@@ -1,7 +1,11 @@
 .job-card {
   background-color: #fff !important;
-  border: 1px solid #999;
+  border: 1px solid #ececec;
   border-radius: 4px;
   margin-bottom: 8px;
+  padding: 16px;
+}
 
+.job-card:hover {
+   box-shadow: 5px 10px #888888;
 }
