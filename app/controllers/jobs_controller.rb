@@ -40,7 +40,7 @@ class JobsController < ApplicationController
   def destroy
     @job = Job.find(params[:id])
     @job.destroy
-    redirect_to dashboard_path
+    redirect_to dashboard_path, flash[:alert] = @job.errors.messages
   end
 
   private
