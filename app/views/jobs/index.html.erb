@@ -2,31 +2,45 @@
 <h1>All Jobs</h1>
 
   <div class="search">
-      <div class="search-form">
-        <%= form_tag jobs_path, method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "search for jobs"%>
-      </div>
-        <i class="fas fa-search"><%= submit_tag "Search", class: "btn"%></i>
-  </div>
-</div>
-    <% end %>
 
-<br>
-
-<div class="job-card col-6">
-    <% @jobs.each do |job| %>
-      <%= link_to "#", class: 'job-link' do %>
-        <h2><%= job.title %><%= job.location %></h2>
-        <h3><%= job.salary %></h3>
-        <p><%= job.description %></p>
+    <div class="search-form">
+      <%= form_tag jobs_path, method: :get, class: "rel", id: "form" do %>
+      <input type="text" name="query" class="form-control rel" placeholder="Search jobs you've posted..." >
+      <i class="fa fa-search tb"></i>
       <% end %>
-  <% end %>
+    </div>
+
+      <br>
+
+    <div>
+      <div>
+        <% @jobs.each do |job| %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+  <br>
+
+  <div class="job-card col-6">
+      <% @jobs.each do |job| %>
+        <%= link_to "#", class: 'job-link' do %>
+          <h2><%= job.title %><%= job.location %></h2>
+          <h3><%= job.salary %></h3>
+          <p><%= job.description %></p>
+        <% end %>
+    <% end %>
+  </div>
+
+  <div
+  class="job-location col-6">
+  </div>
+
 </div>
 
-<div class="job-location col-6">
-
-</div>
-
+<script>
+  document.querySelector(".tb").addEventListener("click", () => {
+    document.getElementById("form").submit();
+  })
+</script>
