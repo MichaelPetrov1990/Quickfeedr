@@ -20,7 +20,7 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
     @job.user = current_user
     if @job.save!
-      redirect_to jobs_path
+      redirect_to dashboard_path
     else
       flash[:alert] = @job.errors.messages
       render :new
@@ -30,7 +30,7 @@ class JobsController < ApplicationController
   def update
     @job = Job.find(params[:id])
     @job.update(job_params)
-    redirect_to jobs_path(@job)
+    redirect_to dashboard_path
   end
 
   def edit
@@ -40,7 +40,7 @@ class JobsController < ApplicationController
   def destroy
     @job = Job.find(params[:id])
     @job.destroy
-    redirect_to jobs_path
+    redirect_to dashboard_path
   end
 
   private
