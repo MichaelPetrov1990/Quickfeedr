@@ -14,7 +14,8 @@
     <% end %>
 
     <div>
-      <button><%= link_to "create a job listing", new_job_path %></button>
+      <button><%= link_to "Create", new_job_path %></button>
+
     </div>
       <div>
         <% @jobs.each do |job| %>
@@ -31,20 +32,16 @@
       <div class="wrapper">
 
         <div class="date">
-          <span class="day">12</span>
-          <span class="month">Aug</span>
-          <span class="year">2016</span>
+          <span class="day"><%= Date.today %></span>
         </div>
-
-       <div class="image">
-         <img class="book-image" src="https://unsplash.com/photos/kOuCX7fh50U"/>
-       </div>
 
         <div class="data">
           <div class="content">
             <span class="author"><%= job.title %></span>
-            <h1 class="title"><a href="#" class="cardTitle">Boxing icon has the will for a couple more fights</a></h1>
-            <p class="text"><%= job.description %></p>
+            <h1 class="title"><a href="#" class="cardTitle"><%= job.description %></a></h1>
+            <p class="text"><%= job.location %>, <%= job.salary %> GBP </p>
+            <button><%= link_to "Delete", job_path(job), method: :delete %></button>
+            <button><%= link_to "Edit", edit_job_path(job) %></button>
           </div>
         </div>
       </div>
