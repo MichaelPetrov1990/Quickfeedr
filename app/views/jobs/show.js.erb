@@ -1,6 +1,7 @@
 
     const locationLink = document.querySelector(".job-location");
     locationLink.insertAdjacentHTML("beforeend", `
+  <button><%= link_to "Apply Now!", "#" %></button>
   <h1><%= @job.title %></h1>
   <h2><%= @job.location %></h2>
   <h3><%= @job.salary %></h3>
