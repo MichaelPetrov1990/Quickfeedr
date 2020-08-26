@@ -1,6 +1,5 @@
-
-    const locationLink = document.querySelector(".job-location");
-    locationLink.insertAdjacentHTML("beforeend", `
+    document.querySelector(".job-location").innerHTML = "";
+    document.querySelector(".job-location").insertAdjacentHTML("beforeend", `
   <button><%= link_to "Apply Now!", job_job_applications_path(@job), method: :post  %></button>
   <h1><%= @job.title %></h1>
   <h2><%= @job.location %></h2>
