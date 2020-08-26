@@ -11,6 +11,7 @@ class PagesController < ApplicationController
 
   def my_profile
     @user = current_user
+    @job_applications = JobApplication.where(user: current_user.id)
   end
 
   private
