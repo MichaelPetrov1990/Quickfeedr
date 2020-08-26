@@ -1,30 +1,31 @@
 <div class="container">
   <h1>Dashboard</h1>
 
-   <div class="search">
-    <div class="search-form">
-      <%= form_tag dashboard_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "search for jobs"%>
-    </div>
-      <i class="fas fa-search"><%= submit_tag "Search", class: "btn"%></i>
-  <div>
+<div class="search">
+
+  <div class="search-form">
+    <%= form_tag dashboard_path, method: :get, class: "rel", id: "form" do %>
+    <input type="text" name="query" class="form-control rel" placeholder="Search jobs you've posted..." >
+    <i class="fa fa-search tb"></i>
     <% end %>
+  </div>
+
+    <br>
+
+  <div>
 
     <div>
-      <button><%= link_to "Create", new_job_path %></button>
-
+      <button class=""><%= link_to "Create", new_job_path %></button>
     </div>
-      <div>
-        <% @jobs.each do |job| %>
-        <% end %>
-      </div>
+
+    <div>
+      <% @jobs.each do |job| %>
+      <% end %>
+    </div>
+
   </div>
+
 </div>
-
-
 
   <div class="row">
     <% @jobs.each do |job| %>
@@ -51,4 +52,9 @@
   </div>
 </div>
 
+<script>
+  document.querySelector(".tb").addEventListener("click", () => {
+    document.getElementById("form").submit();
+  })
+</script>
 
