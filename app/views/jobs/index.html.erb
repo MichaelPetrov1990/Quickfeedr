@@ -16,17 +16,20 @@
 
 <br>
 
-<div class="job-card col-6">
+<div class="job-all col-6">
     <% @jobs.each do |job| %>
-      <%= link_to "#", class: 'job-link' do %>
-        <h2><%= job.title %><%= job.location %></h2>
-        <h3><%= job.salary %></h3>
-        <p><%= job.description %></p>
-      <% end %>
+      <div class="job-container d-flex justify-content-between">
+        <div class="job-card">
+          <%= link_to job_path(job), remote: true, method: :get, class: 'job-link' do %>
+            <h2><%= job.title %><%= job.location %></h2>
+            <h3><%= job.salary %></h3>
+            <p><%= job.description %></p>
+          <% end %>
+        </div>
+        <div class="job-location">
+        </div>
+      </div>
   <% end %>
 </div>
 
-<div class="job-location col-6">
-
-</div>
 
