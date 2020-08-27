@@ -4,11 +4,24 @@ class JobsController < ApplicationController
       @jobs = Job.search_by_title_and_location(params[:query])
     else
       @jobs = Job.all
+
+    end
+      @markers = @jobs.geocoded.map do |job|
+      {
+        lat: job.latitude,
+        lng: job.longitude
+      }
     end
   end
 
+
   def show
     @job = Job.find(params[:id])
+    @markers =
+      {
+        lat: @job.latitude,
+        lng: @job.longitude
+      }
     render :show
   end
 
