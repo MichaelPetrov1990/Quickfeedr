@@ -1,6 +1,13 @@
 class JobApplicationsController < ApplicationController
   def index
+
+  end
+
+  def show
+
+
     @job_applications = JobApplication.all
+
   end
 
   def new
@@ -32,6 +39,12 @@ class JobApplicationsController < ApplicationController
 
   def destroy
 
+  end
+
+  def applicants_show
+
+    @job = Job.find(params[:id])
+    @job_applications = @job.job_applications
   end
 
   private
