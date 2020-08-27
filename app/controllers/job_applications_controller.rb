@@ -1,8 +1,12 @@
 class JobApplicationsController < ApplicationController
   def index
+
   end
 
   def show
+
+
+    @job_applications = JobApplication.all
 
   end
 
@@ -24,12 +28,13 @@ class JobApplicationsController < ApplicationController
     end
   end
 
-  def update
+  def show
+  end
 
+  def update
   end
 
   def edit
-
   end
 
   def destroy
@@ -45,6 +50,5 @@ class JobApplicationsController < ApplicationController
   private
 
   def job_params
-
   end
 end
