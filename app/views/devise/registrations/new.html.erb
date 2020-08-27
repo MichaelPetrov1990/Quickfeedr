@@ -8,6 +8,18 @@
 
   <div class="form-inputs form-login">
   <h2>Sign up</h2>
+    <%= f.input :first_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "first name" }%>
+    <%= f.input :last_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "last name" }%>
+    <%= f.input :job_title,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "current job title" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
