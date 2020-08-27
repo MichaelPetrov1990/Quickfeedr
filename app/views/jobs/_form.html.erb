@@ -2,6 +2,7 @@
   <%= f.input :title %>
   <%= f.input :location %>
   <%= f.input :salary %>
-  <%= f.input :description %>
+  <%= f.input :description, label: "job overview" %>
+  <%= f.input :job_spec, label: "Job spec"%>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
