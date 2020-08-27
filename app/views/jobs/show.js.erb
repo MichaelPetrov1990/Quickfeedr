@@ -5,6 +5,13 @@
   <h2><%= @job.location %></h2>
   <h3><%= @job.salary %></h3>
   <p><%= @job.description %></p>
+  <div id="map"
+  style="width: 100%; height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
 `);
-
-
+console.log("hello")
+console.log("<%=@markers%>")
+// document.getElementById('job-map').innerHTML = "<%= j render partial: 'map', markers: @markers %>";
