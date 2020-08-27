@@ -28,12 +28,14 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 // import { displayShow } from "../components/job_show.js"
+import { homePage } from '../components/home_page'
 import { initMapbox } from '../plugins/init_mapbox';
 import { memorizeScroll} from '../components/memorize_scroll'
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   // displayShow();
+  homePage();
   initMapbox();
   memorizeScroll();
 });
