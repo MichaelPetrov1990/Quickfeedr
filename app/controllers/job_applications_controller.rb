@@ -3,6 +3,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def show
+
   end
 
   def new
@@ -33,6 +34,12 @@ class JobApplicationsController < ApplicationController
 
   def destroy
 
+  end
+
+  def applicants_show
+
+    @job = Job.find(params[:id])
+    @job_applications = @job.job_applications
   end
 
   private

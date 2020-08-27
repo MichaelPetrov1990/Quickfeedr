@@ -18,18 +18,13 @@
       <button class=""><%= link_to "Create", new_job_path %></button>
     </div>
 
-    <div>
-      <% @jobs.each do |job| %>
-      <% end %>
-    </div>
-
   </div>
 
 </div>
 
-  <div class="row">
+<div class="d-flex" >
     <% @jobs.each do |job| %>
-    <div class="example-1 card">
+    <div class="example-1 card my-3">
       <div class="wrapper">
 
         <div class="date">
@@ -43,14 +38,16 @@
             <p class="text"><%= job.location %>, <%= job.salary %> GBP </p>
             <button><%= link_to "Delete", job_path(job), method: :delete %></button>
             <button><%= link_to "Edit", edit_job_path(job) %></button>
-            <button><%= link_to "View applications" , "#" %></button>
+            <button><%= link_to "View applications" , applicants_job_path(job), remote: true, class: 'applicant_show' %></button>
           </div>
         </div>
       </div>
     </div>
     <% end %>
 
-  </div>
+
+</div>
+
 </div>
 
 <script>
@@ -58,4 +55,3 @@
     document.getElementById("form").submit();
   })
 </script>
-
