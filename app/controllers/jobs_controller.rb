@@ -14,15 +14,18 @@ class JobsController < ApplicationController
     end
   end
 
-
   def show
+     if params[:query].present?
+      @jobs = Job.search_by_title_and_location(params[:query])
+    else
+      @jobs = Job.all
+    end
     @job = Job.find(params[:id])
-    @markers =
+    @markers = [
       {
         lat: @job.latitude,
         lng: @job.longitude
-      }
-    render :show
+      }]
   end
 
   def new
