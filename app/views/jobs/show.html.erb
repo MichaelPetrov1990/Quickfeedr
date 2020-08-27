@@ -32,11 +32,13 @@
   </div>
   <div class=" col-5 " id="job-map">
     <div class="job-location">
-  <button><%= link_to "Apply Now!", job_job_applications_path(@job), method: :post  %></button>
+  <button><%= link_to "Apply Now!", job_job_applications_path(@job, anchor: "job-#{@job.id}"), method: :post  %></button>
   <h1><%= @job.title %></h1>
   <h2><%= @job.location %></h2>
   <h3><%= @job.salary %></h3>
   <p><%= @job.description %></p>
+  <p><%= @job.job_spec %></p>
+
    <div id="map"
   style="width: 100%; height: 300px;"
   data-markers="<%= @markers.to_json %>"
