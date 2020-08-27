@@ -1,7 +1,7 @@
    document.querySelector(".applicant_show").parentElement.insertAdjacentHTML("afterend", `
     <ul>
     <% @job_applications.each do |app| %>
-        <%= link_to app.user.email, profile_path %>
+        <%= link_to app.user.first_name, applicant_profile_path(app.user) %>
     <%end%>
     </ul>
 `);

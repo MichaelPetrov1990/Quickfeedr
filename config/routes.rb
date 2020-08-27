@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/dashboard', to: 'pages#recruitment_dashboard', as: "dashboard"
   get '/profile', to: 'pages#my_profile', as: 'profile'
+  get '/applicant_profile/:id', to:'pages#applicant_profile', as:"applicant_profile"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :jobs do

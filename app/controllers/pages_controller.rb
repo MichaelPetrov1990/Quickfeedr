@@ -14,6 +14,10 @@ class PagesController < ApplicationController
     @job_applications = JobApplication.where(user: current_user.id)
   end
 
+  def applicant_profile
+    @applicant_profile = User.find(params[:id])
+  end
+
   private
 
   def search
