@@ -1,14 +1,9 @@
 class JobApplicationsController < ApplicationController
   def index
-
+    @job = Job.find(params[:job_id])
+    @job_applications = @job.job_applications
   end
 
-  def show
-
-
-    @job_applications = JobApplication.all
-
-  end
 
   def new
     @user = current_user
@@ -29,8 +24,8 @@ class JobApplicationsController < ApplicationController
   end
 
   def show
+    @job_applications = JobApplication.all
   end
-
   def update
   end
 
@@ -43,8 +38,6 @@ class JobApplicationsController < ApplicationController
 
   def applicants_show
 
-    @job = Job.find(params[:id])
-    @job_applications = @job.job_applications
   end
 
   private
