@@ -4,7 +4,6 @@ class JobApplicationsController < ApplicationController
     @job_applications = @job.job_applications
   end
 
-
   def new
     @user = current_user
     @job = Job.find(params[:job_id])
@@ -26,6 +25,7 @@ class JobApplicationsController < ApplicationController
   def show
     @job_applications = JobApplication.all
   end
+
   def update
   end
 
