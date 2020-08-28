@@ -38,7 +38,7 @@
             <p class="text"><%= job.location %>, <%= job.salary %> GBP </p>
             <button><%= link_to "Delete", job_path(job), method: :delete %></button>
             <button><%= link_to "Edit", edit_job_path(job) %></button>
-            <button><%= link_to "View applications" , applicants_job_path(job), remote: true, class: 'applicant_show' %></button>
+            <button><%= link_to "View applications" , job_job_applications_path(job), class: 'applicant_show' %></button>
           </div>
         </div>
       </div>

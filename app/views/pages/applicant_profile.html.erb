@@ -3,13 +3,4 @@
   <button> <%= link_to "Interview", "#"  %> </button>
   <button> <%= link_to "Decline", "#"  %> </button>
 
-  <h2>Applied for:</h2>
-  <% @applicant_profile.jobs.each do |job|  %>
-  <div>
-  <div class = "example-1 card">
-      <%= job.title %>
-      <%= job.description %>
-      <%= job.salary%>
-    </div>
-</div>
-  <% end %>
+
