@@ -3,4 +3,19 @@
   <button> <%= link_to "Interview", "#"  %> </button>
   <button> <%= link_to "Decline", "#"  %> </button>
 
+  <button> <%= link_to "Edit profile", "#"  %> </button>
+
+  <h2>Job applications</h2>
+  <div class="d-flex justify-content-around align-items-center ">
+  <% @job_applications.each do |application|  %>
+  <div class = "example-1 card-profile">
+    <ul>
+        <li><%= application.user.first_name %></li>
+        <li><%= application.user.last_name %></li>
+        <li><%= application.user.job_title%></li>
+      </ul>
+</div>
+  <% end %>
+  </div>
+
 
