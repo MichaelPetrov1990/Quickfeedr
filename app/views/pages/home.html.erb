@@ -12,7 +12,17 @@
     <br>
 
 
-
+  <div class="container">
+    <h2>Latest jobs</h2>
+    <div>
+        <% @jobs.each do |job| %>
+        <div class=""><span class=""><%= job.title %></span>
+          <h1 class=""><a href="#" class="cardTitle"><%= job.description %></a></h1>
+          <p class=""><%= job.location %>, <%= job.salary %> GBP </p>
+        </div>
+        <% end %>
+    </div>
+  </div>
 
 <!--Body-->
 
