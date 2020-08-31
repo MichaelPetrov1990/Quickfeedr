@@ -31,7 +31,8 @@
           <%= f.input :password_confirmation,
                       required: true,
                       input_html: { autocomplete: "new-password" } %>
-          <%= f.input :photo, label: "profile picture", as: :file %>
+          <%= f.input :photo, label: "Upload picture", as: :file %>
+          <%= f.input :cv, label: "Upload CV", as: :file %>
           <%= f.input :applicant, label: "Register as an applicant"  %>
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
           <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
