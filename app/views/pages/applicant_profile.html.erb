@@ -2,13 +2,13 @@
 
   <h1> <%= @applicant_profile.fullname %></h1>
   <%= link_to "Interview", "#", class: "btn btn-primary"  %>
-  <%= link_to "Decline", "#", class: "btn btn-primary"  %>
+  <%= link_to "Decline", "", class: "btn btn-primary"  %>
 
   <%= link_to "Edit profile", "#", class: "btn btn-primary"  %>
 
   <h1></h1>
 
-  
+
   <div class="d-flex flex-column justify-content-around align-items-center ">
   <h2 class="bg-info p-2 rounded"><%= @applicant_profile.first_name %>'s CV:</h2>
     <!-- Plug in CV here -->
