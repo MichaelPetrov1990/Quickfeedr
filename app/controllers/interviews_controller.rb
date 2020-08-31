@@ -21,7 +21,11 @@ class InterviewsController < ApplicationController
   end
 
   def show
-
+    # find all interviews
+    @interviews = Interview.all
+    # filter all interviews by job id 
+    @interviews.job = Interview.find(params[job.id])
+    raise
   end
 
   def update
