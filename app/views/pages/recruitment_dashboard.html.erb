@@ -1,57 +1,61 @@
-<div class="container">
-  <h1>Dashboard</h1>
-
-<div class="search">
-
-  <div class="search-form">
-    <%= form_tag dashboard_path, method: :get, class: "rel", id: "form" do %>
-    <input type="text" name="query" class="form-control rel" placeholder="Search jobs you've posted..." >
-    <i class="fa fa-search tb"></i>
-    <% end %>
+<div class="container py-4">
+  <div class="d-flex align-items-center justify-content-between">
+    <h1>Dashboard</h1>
+    <%= link_to "Create", new_job_path, class: "btn btn-primary" %>
   </div>
 
-    <br>
+  <div class="search">
 
-  <div>
-
-    <div>
-      <button class=""><%= link_to "Create", new_job_path %></button>
+    <div class="search-form">
+      <%= form_tag dashboard_path, method: :get, class: "rel", id: "form" do %>
+        <input type="text" name="query" value="<%= params[:query] %>" class="form-control rel" placeholder="Search jobs you've posted..." >
+        <i class="fa fa-search tb"></i>
+      <% end %>
     </div>
-
   </div>
 
-  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Company</th>
+        <th scope="col">Job Title</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Date added</th>
+        <th scope="col">Applicants</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @jobs.each do |job| %>
+        <tr>
+          <th scope="row">
+            <% if job.photo.attached? %>
+              <%= cl_image_tag job.photo.key, class: 'avatar avatar-small' %>
+            <% else %>
+              No photo
+            <% end %>
+          </th>
+          <td><%= job.title %></td>
+          <td><%=  number_with_delimiter(job.salary, separator: " ") %></td>
+          <td><%= job.created_at.strftime("%d-%m-%Y") %></td>
+          <td><%= job.job_applications.count %></td>
+          <td>
+            <div class="dropdown show">
+              <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-h"></i>
+              </a>
 
-    <div class="d-flex justify-content-around" >
-        <% @jobs.each do |job| %>
-        <div class="recruitment-card my-3">
-          <div class="wrapper">
-
-            <div class="recruitment-date">
-              <span class="day"><%= job.created_at.strftime("%d-%m-%Y") %></span>
-            </div>
-
-            <div class="data">
-              <div class="content">
-                <span class="author"><%= job.title %></span>
-                <h1 class="title"><a href="#" class="cardTitle"><%= job.description %></a></h1>
-                <p class="text"><%= job.location %>, <%= job.salary %> GBP </p>
-                <button><%= link_to "Delete", job_path(job), method: :delete %></button>
-                <button><%= link_to "Edit", edit_job_path(job) %></button>
-                <button><%= link_to "View applications" , job_job_applications_path(job), class: 'applicant_show' %></button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <%= link_to "View applications" , job_job_applications_path(job), class: 'dropdown-item' %>
+                <%= link_to "Archive", job_path(job), method: :delete, class: 'dropdown-item' %>
+                <%= link_to "Edit", edit_job_path(job), class: 'dropdown-item' %>
               </div>
             </div>
-          </div>
-        </div>
-        <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-
-    </div>
 
 </div>
-
-<script>
-  document.querySelector(".tb").addEventListener("click", () => {
-    document.getElementById("form").submit();
-  })
-</script>
