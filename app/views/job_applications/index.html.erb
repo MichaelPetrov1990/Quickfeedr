@@ -45,10 +45,3 @@
   </div>
 </div>
 
-
-<% @job_applications.each do |application| %>
-
-<%= application.user.first_name %>
-<%= application.user.job_title %>
-<button> <%= link_to "view candidate profile", applicant_profile_path(application.user) %> </button>
-<% end %>
