@@ -1,0 +1,8 @@
+
+
+<%@interviews.each do |interview| %>
+<ul>
+   <li><%= interview.job_application.user.fullname %><li>
+   <li><%= interview.stage%></li>
+</ul>
+<% end  %>
