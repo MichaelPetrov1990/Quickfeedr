@@ -36,6 +36,8 @@
                   <%= link_to "View candidate profile", applicant_profile_path(application.user), class: 'dropdown-item' %>
                   <%= link_to "Interview", job_job_application_interviews_path(@job, application), method: :post, class: 'dropdown-item'%>
                   <%= link_to "Reject", reject_job_job_application_path(@job, application), method: :post, class: 'dropdown-item'%>
+                  <%= link_to "All interviews",job_job_application_interviews_path(@job, application)   %>
+
                 </div>
               </div>
             </td>

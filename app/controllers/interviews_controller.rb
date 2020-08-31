@@ -1,8 +1,8 @@
 class InterviewsController < ApplicationController
   def index
-    @interviews = Interview.all
+    @job = Job.find(params[:job_id])
+    @interviews = Interview.select { |interview| interview.job_application.job == @job}
   end
-
 
   def new
     @job = Job.find(params[:id])
@@ -21,11 +21,6 @@ class InterviewsController < ApplicationController
   end
 
   def show
-    # find all interviews
-    @interviews = Interview.all
-    # filter all interviews by job id 
-    @interviews.job = Interview.find(params[job.id])
-    raise
   end
 
   def update
