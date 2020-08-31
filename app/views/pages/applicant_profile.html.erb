@@ -1,17 +1,18 @@
 
 
-  <h1> <%= @applicant_profile.first_name %>'s Profile </h1>
-  <button> <%= link_to "Interview", "#"  %> </button>
-  <button> <%= link_to "Decline", "#"  %> </button>
+  <h1> <%= @applicant_profile.fullname %></h1>
+  <%= link_to "Interview", "#", class: "btn btn-primary"  %>
+  <%= link_to "Decline", "#", class: "btn btn-primary"  %>
 
-  <button> <%= link_to "Edit profile", "#"  %> </button>
+  <%= link_to "Edit profile", "#", class: "btn btn-primary"  %>
 
   <h1></h1>
 
-  <h2>CV:</h2>
-  <div class="d-flex justify-content-around align-items-center ">
-
+  
+  <div class="d-flex flex-column justify-content-around align-items-center ">
+  <h2 class="bg-info p-2 rounded"><%= @applicant_profile.first_name %>'s CV:</h2>
     <!-- Plug in CV here -->
+  <%= cl_image_tag @applicant_profile.cv.key, class: "w-50" %>
     <!-- <div class = "example-1 card-profile">
       <ul>
           <li><%= @applicant_profile.first_name %></li>
