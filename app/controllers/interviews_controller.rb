@@ -20,9 +20,6 @@ class InterviewsController < ApplicationController
     redirect_to job_job_application_interview_path(@job, @job_application, @interview)
   end
 
-  def reject
-  end
-
   def show
 
   end

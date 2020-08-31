@@ -26,6 +26,16 @@ class JobApplicationsController < ApplicationController
     @job_applications = JobApplication.all
   end
 
+  def reject
+    @job = Job.find(params[:job_id])
+    @job_application = JobApplication.find(params[:id])
+    @interview = Interview.new
+    @interview.job_application = @job_application
+    @interview.stage = "rejected"
+    @interview.save!
+    redirect_to job_job_application_interview_path(@job, @job_application, @interview)
+  end
+
   def update
   end
 
