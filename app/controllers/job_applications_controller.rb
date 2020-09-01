@@ -43,7 +43,6 @@ class JobApplicationsController < ApplicationController
   end
 
   def destroy
-
   end
 
   def applicants_show

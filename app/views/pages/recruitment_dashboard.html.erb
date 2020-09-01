@@ -22,6 +22,7 @@
         <th scope="col">Salary</th>
         <th scope="col">Date added</th>
         <th scope="col">Applicants</th>
+        <th scope="col">Interviews</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -39,6 +40,7 @@
           <td><%=  number_with_delimiter(job.salary, separator: " ") %></td>
           <td><%= job.created_at.strftime("%d-%m-%Y") %></td>
           <td><%= job.job_applications.count %></td>
+          <td><%= job.job_applications.map { |application| application.interview }.compact.count%></td>
           <td>
             <div class="dropdown show">
               <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -47,6 +49,7 @@
 
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <%= link_to "View applications" , job_job_applications_path(job), class: 'dropdown-item' %>
+                <%= link_to "View interviews", job_job_application_interview_feedbacks_path(job, :job_application_id), class: 'dropdown-item' %>
                 <%= link_to "Archive", job_path(job), method: :delete, class: 'dropdown-item' %>
                 <%= link_to "Edit", edit_job_path(job), class: 'dropdown-item' %>
               </div>
@@ -56,6 +59,4 @@
       <% end %>
     </tbody>
   </table>
-
-
 </div>
