@@ -15,7 +15,7 @@ class InterviewsController < ApplicationController
     @job_application = JobApplication.find(params[:job_application_id])
     @interview = Interview.new
     @interview.job_application = @job_application
-    @interview.stage = "1st stage"
+    @interview.stage = "1st Stage"
     @interview.save
     redirect_to job_job_application_interviews_path(@job, @job_application)
   end

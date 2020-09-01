@@ -6,9 +6,9 @@ class FeedbacksController < ApplicationController
     @feedback = Feedback.new
     @feedback.interview = @job_application.interview
 
-    if @job_application.interview.stage == "rejected"
+    if @job_application.interview.stage == "Rejected"
       @feedback.message = "I am sorry you have been unsuccesfull with this job application"
-    elsif @job_application.interview.stage == "1st stage"
+    elsif @job_application.interview.stage == "1st Stage"
       @feedback.message = "Congratulatons you have been invited to an interview"
     else
       @feedback.message = "Your application is still being reviewed"
