@@ -49,7 +49,7 @@
 
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <%= link_to "View applications" , job_job_applications_path(job), class: 'dropdown-item' %>
-                <%= link_to "View interviews", job_job_application_interviews_path(job, :job_application_id), class: 'dropdown-item' %>
+                <%= link_to "View interviews", job_job_application_interview_feedbacks_path(job, :job_application_id), class: 'dropdown-item' %>
                 <%= link_to "Archive", job_path(job), method: :delete, class: 'dropdown-item' %>
                 <%= link_to "Edit", edit_job_path(job), class: 'dropdown-item' %>
               </div>

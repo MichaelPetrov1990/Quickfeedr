@@ -11,7 +11,9 @@ Rails.application.routes.draw do
         member do
           post :reject
         end
-      resources :interviews, only: [:index, :new, :create, :show, :update, :edit]
+      resources :interviews, only: [:index, :new, :create, :show, :update, :edit] do
+        resources :feedbacks, only: [:new, :create, :show, :update, :edit]
+      end
     end
   end
 end
