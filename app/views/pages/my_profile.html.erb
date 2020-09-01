@@ -8,12 +8,17 @@
   <div class="d-flex justify-content-around align-items-center pt-3">
   <h2>Job applications</h2>
   <% @job_applications.each do |application|  %>
+<<<<<<< HEAD
+  <div class = "card-profile">
+=======
   <div class = "example-1 card-profile mb-2">
+>>>>>>> 8e5e2bda7f96c02e2fb5fe187ca7b083c06d1013
     <ul>
         <li><%= application.job.title %></li>
         <li><%= application.job.description %></li>
         <li><%= application.job.salary%></li>
 
 </div>
+<%= application.interview.feedback.message %>
   <% end %>
   </div>
