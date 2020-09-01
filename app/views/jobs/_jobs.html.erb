@@ -35,9 +35,7 @@
             </div>
 
             <div class="job-container">
-
                 <h5><%= job.description %></h5>
-
             </div>
           <% end %>
         </div>
@@ -46,12 +44,12 @@
 
     <div class=" col-5 " id="job-map">
       <div class="job-location">
-        <button><%= link_to "Apply Now!", job_job_applications_path(@job, anchor: "job-#{@job.id}"), method: :post  %></button>
-        <h1><%= @job.title %></h1>
-        <h2><%= @job.location %></h2>
-        <h3><%= @job.salary %></h3>
+        <h3><%= @job.title %></h3>
+        <h4><%= @job.location %></h4>
+        <h5><%= @job.salary %></h5>
         <p><%= @job.description %></p>
         <p><%= @job.job_spec %></p>
+        <button><%= link_to "Apply Now!", job_job_applications_path(@job, anchor: "job-#{@job.id}"), method: :post  %></button>
       </div>
 
        <div id="map"
