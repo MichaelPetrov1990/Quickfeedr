@@ -4,5 +4,8 @@
 <ul>
    <li><%= interview.job_application.user.fullname %><li>
    <li><%= interview.stage%></li>
+   <%= link_to "leave feedback", job_job_application_feedbacks_path(@job, interview.job_application_id), method: :post  %>
 </ul>
 <% end  %>
+
+/jobs/:job_id/job_applications/:job_application_id/feedbacks(.:format)
