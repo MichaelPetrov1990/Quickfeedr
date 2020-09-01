@@ -12,6 +12,7 @@ class JobsController < ApplicationController
         lng: job.longitude
       }
     end
+    @job = @jobs.first
   end
 
   def show
