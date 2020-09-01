@@ -29,12 +29,13 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 // import { displayShow } from "../components/job_show.js"
 import { initMapbox } from '../plugins/init_mapbox';
-import { memorizeScroll} from '../components/memorize_scroll'
+import { memorizeScroll} from '../components/memorize_scroll';
+import { newText } from '../components/typed_js';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   // displayShow();
-  
+  newText();
   initMapbox();
   memorizeScroll();
 });
