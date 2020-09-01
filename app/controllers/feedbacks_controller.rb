@@ -3,6 +3,7 @@ class FeedbacksController < ApplicationController
   def create
     @job = Job.find(params[:job_id])
     @job_application = JobApplication.find(params[:job_application_id])
+    # @interview = Interview.find(params[:interview_id])
     @feedback = Feedback.new
     @feedback.interview = @job_application.interview
 
@@ -14,6 +15,7 @@ class FeedbacksController < ApplicationController
       @feedback.message = "Your application is still being reviewed"
     end
     @feedback.save
-    redirect_to job_job_application_interviews_path(@jobs, @job_application, @job_application.interview)
+    redirect_to job_job_application_interviews_path(@job, @job_application, @job_application.interview)
+    # jobs/:job_id/job_applications/:job_application_id/interviews/:id
   end
 end
