@@ -1,10 +1,20 @@
-
-
-<%@interviews.each do |interview| %>
-<ul>
-   <li><%= interview.job_application.user.fullname %><li>
-   <li><%= interview.stage%></li>
-   <%= link_to "leave feedback", job_job_application_feedbacks_path(@job, interview.job_application_id), method: :post  %>
-</ul>
-<% end  %>
-
+<div class="container py-4">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Application Stage</th>
+        <th scope="col">Feedback</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @interviews.each do |interview| %>
+        <tr>
+          <td><%= interview.job_application.user.fullname %></td>
+          <td><%=  interview.stage %></td>
+          <td><%= link_to "Leave Feedback", job_job_application_feedbacks_path(@job, interview.job_application_id), method: :post  %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
+</div>
