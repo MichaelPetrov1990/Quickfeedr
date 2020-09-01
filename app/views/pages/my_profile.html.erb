@@ -1,18 +1,19 @@
-<h1> My Profile </h1>
-  <% if @user.cv.attached? %>
-    <%= cl_image_tag @user.cv.key, class: "w-50" %>
-  <% end %>
-  <%= link_to "Edit profile", "#"  %>
+<div class="d-flex flex-column justify-content-around align-items-center ">
+  <h1> My Profile </h1>
+    <% if @user.cv.attached? %>
+      <%= cl_image_tag @user.cv.key, class: "w-50" %>
+    <% end %>
+ </div> 
 
+  <div class="d-flex justify-content-around align-items-center pt-3">
   <h2>Job applications</h2>
-  <div class="d-flex justify-content-around align-items-center ">
   <% @job_applications.each do |application|  %>
-  <div class = "example-1 card-profile">
+  <div class = "example-1 card-profile mb-2">
     <ul>
         <li><%= application.job.title %></li>
         <li><%= application.job.description %></li>
         <li><%= application.job.salary%></li>
-      </ul>
+    </ul>
 </div>
   <% end %>
   </div>
