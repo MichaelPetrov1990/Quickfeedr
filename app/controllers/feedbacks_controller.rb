@@ -17,6 +17,4 @@ class FeedbacksController < ApplicationController
     redirect_to job_job_application_interviews_path(@jobs, @job_application, @feedback.inteview)
   end
 end
-
-
-job_job_application_interviews GET    /jobs/:job_id/job_applications/:job_application_id/interviews(.:format)                  interviews#index
+               interviews#index
