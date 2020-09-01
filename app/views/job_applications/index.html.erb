@@ -36,9 +36,11 @@
                   <%= link_to "View candidate profile", applicant_profile_path(application.user), class: 'dropdown-item' %>
                   <%= link_to "Interview", job_job_application_interviews_path(@job, application), method: :post, class: 'dropdown-item'%>
                   <%= link_to "Reject", reject_job_job_application_path(@job, application), method: :post, class: 'dropdown-item'%>
-                  <%= link_to "Leave feedback", job_job_application_interview_feedbacks_path(@job, application, application.interview), method: :post, class: 'dropdown-item'%>
+                  <% if application.interview.present? %>
+                    <%= link_to "Leave feedback", job_job_application_feedbacks_path(@job, application), method: :post, class: 'dropdown-item'%>
+                  <% end %>
                   <!-- POST   /jobs/:job_id/job_applications/:job_application_id/interviews/:interview_id/feedbacks(.:format) -->
-                  <%= link_to "All interviews",job_job_application_interviews_path(@job, application)   %>
+                  <%= link_to "All interviews",job_job_application_interviews_path(@job, application), class: 'dropdown-item'   %>
 
                 </div>
               </div>
