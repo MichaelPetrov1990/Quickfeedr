@@ -3,7 +3,7 @@
     <%= cl_image_tag @user.cv.key, class: "w-50" %>
   <% end %>
   <%= link_to "Edit profile", "#"  %>
-  
+
   <h2>Job applications</h2>
   <div class="d-flex justify-content-around align-items-center ">
   <% @job_applications.each do |application|  %>
