@@ -50,9 +50,9 @@
           <h3><%= @job.title %></h3>
           <h4><%= @job.location %></h4>
           <h5><%= @job.salary %></h5>
+          <button><%= link_to "Apply Now!", job_job_applications_path(@job, anchor: "job-#{@job.id}"), method: :post  %></button>
           <p><%= @job.description %></p>
           <p><%= @job.job_spec %></p>
-          <button><%= link_to "Apply Now!", job_job_applications_path(@job, anchor: "job-#{@job.id}"), method: :post  %></button>
         </div>
 
         <div id="map"
