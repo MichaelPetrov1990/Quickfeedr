@@ -33,7 +33,7 @@ class JobApplicationsController < ApplicationController
     @interview.job_application = @job_application
     @interview.stage = "Rejected"
     @interview.save!
-    redirect_to job_job_application_interviews_path(@job, @job_application)
+    redirect_to job_job_application_interviews_path(@job, @job_application), notice: "Succesfully rejected job application"
   end
 
   def update

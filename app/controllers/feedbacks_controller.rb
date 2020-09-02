@@ -15,7 +15,7 @@ class FeedbacksController < ApplicationController
       @feedback.message = "Your application is still being reviewed"
     end
     @feedback.save
-    redirect_to job_job_application_interviews_path(@job, @job_application, @job_application.interview)
+    redirect_to job_job_application_interviews_path(@job, @job_application, @job_application.interview), notice: "Succesfully sent feedback"
     # jobs/:job_id/job_applications/:job_application_id/interviews/:id
   end
 end
