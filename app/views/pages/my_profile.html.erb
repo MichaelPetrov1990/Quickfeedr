@@ -20,6 +20,7 @@
           <th scope="col">Job Title</th>
           <th scope="col">Job Description</th>
           <th scope="col">Salary</th>
+          <th scope="col"> Application status</th>
 
         </tr>
       </thead>
@@ -29,6 +30,7 @@
           <td><%= application.job.title %></td>
           <td><%= application.job.description %></td>
           <td><%= application.job.salary%></td>
+          <td><%= application.interview.feedback.message %></td>
         </tr>
         <% end %>
       </tbody>
