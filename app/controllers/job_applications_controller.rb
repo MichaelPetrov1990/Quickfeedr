@@ -16,7 +16,7 @@ class JobApplicationsController < ApplicationController
     @job_application.job = @job
     @job_application.user = current_user
     if @job_application.save!
-      redirect_to jobs_path, notice: "Succesfully applied"
+      redirect_to jobs_path, notice: "Succesfully applied", remote: true
     else
       flash[]
     end
@@ -33,7 +33,7 @@ class JobApplicationsController < ApplicationController
     @interview.job_application = @job_application
     @interview.stage = "Rejected"
     @interview.save!
-    redirect_to job_job_application_interviews_path(@job, @job_application), notice: "Succesfully rejected job application"
+    redirect_to job_job_application_interviews_path(@job, @job_application), notice: "Succesfully rejected job application", remote: true
   end
 
   def update
