@@ -23,4 +23,6 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
-
+.front {
+  z-index: 1500 !important;
+}

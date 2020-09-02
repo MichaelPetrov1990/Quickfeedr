@@ -1,28 +1,12 @@
 class JobsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-  #   @placeholder = "Search all jobs..."
-    if params[:query].present?
-      @jobs = Job.search_by_title_and_location(params[:query])
-      # @placeholder = params[:query]
-    else
-      @jobs = Job.all
-
-    end
-      @markers = @jobs.geocoded.map do |job|
-      {
-        lat: job.latitude,
-        lng: job.longitude
-      }
-    end
-    @job = @jobs.first
+    redirect_to job_path(Job.first)
   end
 
   def show
-    @placeholder = "Search all jobs..."
     if params[:query].present?
       @jobs = Job.search_by_title_and_location(params[:query])
-      @placeholder = params[:query]
     else
       @jobs = Job.all
     end
