@@ -1,18 +1,46 @@
+  <h1>Candidate Profile</h1>
+  <%= link_to "Interview", "#", class: "btn btn-primary"  %>
+  <%= link_to "Decline", "#", class: "btn btn-primary"  %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Candidate picture</th>
+        <th scope="col">Candidate name</th>
+        <th scope="col">Job Title</th>
+        <th scope="col">Jobs applied for</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <th scope="row">
+            <% if @applicant_profile.photo.attached? %>
+              <%= cl_image_tag @applicant_profile.photo.key, class: 'avatar avatar-small' %>
+            <% else %>
+              No photo
+            <% end %>
+          </th>
+          <td><%= @applicant_profile.fullname%></td>
+          <td><%= @applicant_profile.job_title%></td>
+          <td>
+            <%@applicant_profile.job_applications.uniq.each do | application |%>
+                <%= application.job.title%>,
+          <% end %>
+          </td>
+          <td><%#= @applicant_profile.job.title %></td>
+          <td> </td>
+        </tr>
+    </tbody>
+  </table>
+
   <div class="d-flex flex-column justify-content-around align-items-center ">
-  <h2 class="bg-info p-2 rounded"><%= @applicant_profile.first_name %>'s CV:</h2>
-    <!-- Plug in CV here -->
+ 
     <% if @applicant_profile.cv.attached? %>
   <%= cl_image_tag @applicant_profile.cv.key, class: "w-50" %>
     <% else %>
        <h2>No CV attached</h2>
     <% end %>
-    <!-- <div class = "example-1 card-profile">
-      <ul>
-          <li><%= @applicant_profile.first_name %></li>
-          <li><%= @applicant_profile.last_name %></li>
-          <li><%= @applicant_profile.job_title%></li>
-        </ul>
-    </div> -->
+  
   </div>
 
 
