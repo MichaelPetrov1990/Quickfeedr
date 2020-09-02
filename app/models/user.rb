@@ -6,8 +6,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one_attached :photo
   has_one_attached :cv
-
   has_many :jobs
+  has_many :job_applications
 
   def fullname
     "#{first_name} #{last_name}"
