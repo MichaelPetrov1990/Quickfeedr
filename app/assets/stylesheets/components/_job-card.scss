@@ -7,6 +7,8 @@
   margin-bottom: 8px;
   padding: 16px;
   color: gray;
+  overflow: hidden;
+  height: 200px;
 }
 
 .job-title {
@@ -23,13 +25,14 @@
 
 .job-location {
   border: 1px solid #ececec;
-  position: sticky;
   top: 0;
   right: 0;
   border-radius: 4px;
   margin-bottom: 8px;
   padding: 16px;
   background-color: #fff !important;
+  height: 500px;
+  overflow: scroll;
 
 }
 
@@ -50,4 +53,8 @@
 .card-image {
 
   margin-right: 25px;
+}
+
+.job-map {
+
 }
