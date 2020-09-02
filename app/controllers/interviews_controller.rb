@@ -17,7 +17,7 @@ class InterviewsController < ApplicationController
     @interview.job_application = @job_application
     @interview.stage = "1st Stage"
     @interview.save
-    redirect_to job_job_application_interviews_path(@job, @job_application), notice: "Succesfully sent interview request"
+    redirect_to job_job_application_interviews_path(@job, @job_application), notice: "Succesfully sent interview request", remote: true
   end
 
   def show
