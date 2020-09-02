@@ -31,10 +31,9 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { memorizeScroll} from '../components/memorize_scroll';
 import { newText } from '../components/typed_js';
+
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
-  // displayShow();
+
   newText();
   initMapbox();
   memorizeScroll();

@@ -1,43 +1,95 @@
-<div class= "container py-4">
+<div class="container py-3">
+  <div class="row">
+    <div class="col-8">
+      <div class="card p-3 mb-3">
+        <div class="d-flex align-items-center">
+          <% if @user.photo.attached? %>
+            <%= cl_image_tag @user.photo.key, class: 'avatar-square-lg mr-3' %>
+          <% else %>
+            <%= image_tag "https://eu.ui-avatars.com/api/?name=#{@user.fullname}", class: 'avatar-square-lg mr-3' %>
+          <% end %>
+          <h4><%= @user.fullname %></h4>
 
-  <div class="d-flex flex-column justify-content-around align-items-center ">
-    <h1> My Profile </h1>
+        </div>
+        <hr>
+        <p class="small text-muted">Looking for:</p>
+        <p><%= @user.job_title %></p>
+      </div>
+      <div class="card p-3">
+        <p class="small text-muted"> My Job Applications</p>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Job Title</th>
+              <th scope="col">Salary</th>
+              <th scope="col">Status</th>
+              <th scope="col">Feedback</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @job_applications.each do |application|  %>
+            <tr>
+              <td><%= application.job.title %></td>
+              <td>£<%= number_with_delimiter(application.job.salary, delimiter: " ") %></td>
+              <td>
+                <% if application.interview.nil? %>
+                  <span class="badge badge-warning">Pending application</span>
+                <% elsif application.interview.stage == 'Rejected' %>
+                  <span class="badge badge-danger">Application rejected</span>
+                <% else %>
+                  <span class="badge badge-primary"><%= application.interview.stage %></span>
+                <% end %>
+
+              </td>
+              <td>
+                <!-- Button trigger modal -->
+                <% if application&.interview&.feedback&.message %>
+                  <a data-toggle="modal" data-target="#exampleModalLong">
+                    Read feedback
+                  </a>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <%= application&.interview&.feedback&.message %>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% else %>
+                  <p class="text-muted">No feedback</p>
+                <% end %>
+              </td>
+
+
+            </tr>
+            <% end %>
+          </tbody>
+
+
+        </table>
+      </div>
+    </div>
+    <div class="col-4">
       <% if @user.cv.attached? %>
-        <%= cl_image_tag @user.cv.key, class: "w-50" %>
+        <%= cl_image_tag @user.cv.key, class: "w-100" %>
+      <% else %>
+         <p class="text-muted">No CV attached</p>
       <% end %>
-   </div>
-
- </div>
-
-<div class= "container py-4">
-  <div class="d-flex flex-column justify-content-around align-items-center ">
-    <h1>Job applications</h1>
-
-
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Job Title</th>
-          <th scope="col">Job Description</th>
-          <th scope="col">Salary</th>
-          <th scope="col"> Application status</th>
-
-        </tr>
-      </thead>
-      <tbody>
-        <% @job_applications.each do |application|  %>
-        <tr>
-          <td><%= application.job.title %></td>
-          <td><%= application.job.description %></td>
-          <td><%= application.job.salary%></td>
-          <td><%= application&.interview&.feedback&.message %></td>
-        </tr>
-        <% end %>
-      </tbody>
-
-
-    </table>
+    </div>
   </div>
 </div>
-
 
