@@ -1,10 +1,10 @@
 class JobsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @placeholder = "Search all jobs..."
+  #   @placeholder = "Search all jobs..."
     if params[:query].present?
       @jobs = Job.search_by_title_and_location(params[:query])
-      @placeholder = params[:query]
+      # @placeholder = params[:query]
     else
       @jobs = Job.all
 
