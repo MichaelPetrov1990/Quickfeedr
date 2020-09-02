@@ -1,46 +1,49 @@
-  <h1>Candidate Profile</h1>
-  <%= link_to "Interview", "#", class: "btn btn-primary"  %>
-  <%= link_to "Decline", "#", class: "btn btn-primary"  %>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Candidate picture</th>
-        <th scope="col">Candidate name</th>
-        <th scope="col">Job Title</th>
-        <th scope="col">Jobs applied for</th>
-      </tr>
-    </thead>
-    <tbody>
+<div class="container">
+  <h1 style="text-align: center;">Candidate Profile</h1>
+  <div style="text-align: right; margin-bottom: 16px">
+    <%= link_to "Interview", "#", class: "btn btn-primary"  %>
+    <%= link_to "Decline", "#", class: "btn btn-primary"  %>
+  </div>
+  <div style="background-color: white">
+    <table class="table">
+      <thead>
         <tr>
-          <th scope="row">
-            <% if @applicant_profile.photo.attached? %>
-              <%= cl_image_tag @applicant_profile.photo.key, class: 'avatar avatar-small' %>
-            <% else %>
-              No photo
-            <% end %>
-          </th>
-          <td><%= @applicant_profile.fullname%></td>
-          <td><%= @applicant_profile.job_title%></td>
-          <td>
-            <%@applicant_profile.job_applications.uniq.each do | application |%>
-                <%= application.job.title%>,
-          <% end %>
-          </td>
-          <td><%#= @applicant_profile.job.title %></td>
-          <td> </td>
+          <th scope="col">Candidate picture</th>
+          <th scope="col">Candidate name</th>
+          <th scope="col">Job Title</th>
+          <th scope="col">Jobs applied for</th>
         </tr>
-    </tbody>
-  </table>
-
+      </thead>
+      <tbody>
+          <tr>
+            <th scope="row">
+              <% if @applicant_profile.photo.attached? %>
+                <%= cl_image_tag @applicant_profile.photo.key, class: 'avatar avatar-small' %>
+              <% else %>
+                No photo
+              <% end %>
+            </th>
+            <td><%= @applicant_profile.fullname%></td>
+            <td><%= @applicant_profile.job_title%></td>
+            <td>
+              <%@applicant_profile.job_applications.uniq.each do | application |%>
+                  <%= application.job.title%>,
+            <% end %>
+            </td>
+            <td><%#= @applicant_profile.job.title %></td>
+            <td> </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
   <div class="d-flex flex-column justify-content-around align-items-center ">
- 
+
     <% if @applicant_profile.cv.attached? %>
   <%= cl_image_tag @applicant_profile.cv.key, class: "w-50" %>
     <% else %>
        <h2>No CV attached</h2>
     <% end %>
-  
-  </div>
 
+  </div>
+</div>
 
