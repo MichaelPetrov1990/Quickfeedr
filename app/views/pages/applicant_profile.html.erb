@@ -1,5 +1,3 @@
-
-
   <h1>Candidate Profile</h1>
   <%= link_to "Interview", "#", class: "btn btn-primary"  %>
   <%= link_to "Decline", "#", class: "btn btn-primary"  %>
@@ -34,20 +32,15 @@
         </tr>
     </tbody>
   </table>
+
   <div class="d-flex flex-column justify-content-around align-items-center ">
-    <!-- Plug in CV here -->
+ 
     <% if @applicant_profile.cv.attached? %>
   <%= cl_image_tag @applicant_profile.cv.key, class: "w-50" %>
     <% else %>
        <h2>No CV attached</h2>
     <% end %>
-    <!-- <div class = "example-1 card-profile">
-      <ul>
-          <li><%= @applicant_profile.first_name %></li>
-          <li><%= @applicant_profile.last_name %></li>
-          <li><%= @applicant_profile.job_title%></li>
-        </ul>
-    </div> -->
+  
   </div>
 
 

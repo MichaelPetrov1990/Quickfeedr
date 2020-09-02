@@ -22,14 +22,16 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+    <div class="body-wrapper">
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
 
-    
-    <%= yield %>
-    
-    <div style="height: 50px;"></div>
-    <%= render 'shared/footer' %>
+      
+      <%= yield %>
+      
+      <div style="height: 50px;"></div>
+      <%= render 'shared/footer' %>
+    </div>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 </html>
