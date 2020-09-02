@@ -21,7 +21,7 @@
     <div class="job-all col-7" data-turbolinks-permanent>
       <% @jobs.each do |job| %>
         <div class="job-card">
-          <%= link_to job_path(job), class: 'job-link' do %>
+          <%= link_to job_path(job, query: params[:query]), class: 'job-link' do %>
 
             <div class="job-title">
               <% if job.photo.attached? %>
