@@ -30,56 +30,50 @@
           </thead>
           <tbody>
             <% @job_applications.each do |application|  %>
-            <tr>
-              <td><%= application.job.title %></td>
-              <td>£<%= number_with_delimiter(application.job.salary, delimiter: " ") %></td>
-              <td>
-                <% if application.interview.nil? %>
-                  <span class="badge badge-warning">Pending application</span>
-                <% elsif application.interview.stage == 'Rejected' %>
-                  <span class="badge badge-danger">Application rejected</span>
-                <% else %>
-                  <span class="badge badge-primary"><%= application.interview.stage %></span>
-                <% end %>
-
-              </td>
-              <td>
-                <!-- Button trigger modal -->
-                <% if application&.interview&.feedback&.message %>
-                  <a data-toggle="modal" data-target="#exampleModalLong">
-                    Read feedback
-                  </a>
-
-                  <!-- Modal -->
-                  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLongTitle">Feedback</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <%= application&.interview&.feedback&.message %>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <tr>
+                <td><%= application.job.title %></td>
+                <td>£<%= number_with_delimiter(application.job.salary, delimiter: " ") %></td>
+                <td>
+                  <% if application.interview.nil? %>
+                    <span class="badge badge-warning">Pending application</span>
+                  <% elsif application.interview.stage == 'Rejected' %>
+                    <span class="badge badge-danger">Application rejected</span>
+                  <% else %>
+                    <span class="badge badge-primary"><%= application.interview.stage %></span>
+                  <% end %>
+                </td>
+                <td>
+                  <!-- Button trigger modal -->
+                  <% if application&.interview&.feedback&.message %>
+                    <a data-toggle="modal" data-target="<%= "#application-#{application.id}" %>">
+                      Read feedback
+                    </a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="<%= "application-#{application.id}" %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Feedback</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <%= application&.interview&.feedback&.message %>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                <% else %>
-                  <p class="text-muted">No feedback</p>
-                <% end %>
-              </td>
-
-
-            </tr>
+                  <% else %>
+                    <p class="text-muted">No feedback</p>
+                  <% end %>
+                </td>
+              </tr>
             <% end %>
           </tbody>
-
-
         </table>
       </div>
     </div>
