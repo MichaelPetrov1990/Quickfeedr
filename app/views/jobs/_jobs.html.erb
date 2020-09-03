@@ -20,7 +20,7 @@
       <% else %>
         <% @jobs.each do |job| %>
 
-          <div class="card p-3 mb-3">
+          <div class="card p-3 mb-3" id="job-<%= job.id %>">
             <div class="d-flex">
               <% if job.photo.attached? %>
                 <%= cl_image_tag job.photo.key, height: 50, width: 50, crop: :fill, class: "avatar-square mr-2" %>
@@ -29,7 +29,7 @@
               <% end %>
               <div>
                 <strong>
-                  <%= link_to job.title, job_path(job, query: params[:query]) %>
+                  <%= link_to job.title, job_path(job, query: params[:query], anchor: "job-#{job.id}") %>
                 </strong>
                 <p class="m-0 small text-muted"><i class="fas fa-map-pin fa-fw"></i> <%= job.location %></p>
                 <p class="mb-2 small text-muted"><i class="fas fa-money-bill-wave fa-fw"></i> £<%= number_with_delimiter(job.salary, delimiter: " ") %></p>

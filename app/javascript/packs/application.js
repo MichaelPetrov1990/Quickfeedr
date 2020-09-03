@@ -36,6 +36,6 @@ document.addEventListener('turbolinks:load', () => {
 
   newText();
   initMapbox();
-  memorizeScroll();
+  // memorizeScroll();
 });
 
