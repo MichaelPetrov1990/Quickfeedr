@@ -16,7 +16,7 @@
               <td><%= interview.job_application.user.fullname %></td>
               <td><%=  interview.stage %></td>
               <td><%= link_to "Edit", "#"%></td>
-              <td><%= link_to "Leave Feedback", job_job_application_feedbacks_path(@job, interview.job_application_id), method: :post  %></td>
+              <td><%= link_to "Leave Feedback", job_job_application_feedbacks_path(@job, interview.job_application), method: :post  %></td>
 
             </tr>
           <% end %>
