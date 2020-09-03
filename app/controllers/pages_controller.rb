@@ -18,6 +18,7 @@ class PagesController < ApplicationController
   def applicant_profile
     @applicant_profile = User.find(params[:id])
     # @applicant_profile.job = Job.find(params[:id])
+
   end
 
   private

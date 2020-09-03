@@ -1,7 +1,7 @@
 import Typed from 'typed.js';
 
-const text = document.getElementById("typed");
 const newText = () => {
+const text = document.getElementById("typed");
   if (text) {
     new Typed("#typed", {
       strings: ['Web Developer', 'Designer', 'Software Engineer'],
