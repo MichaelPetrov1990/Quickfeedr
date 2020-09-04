@@ -58,7 +58,7 @@
           <h4><%= @job.title %></h4>
         </div>
         <hr>
-        <% apply = current_user.job_applications.find_by(job: @job) %>
+        <% apply = current_user.job_applications.find_by(job: @job) if current_user%>
         <% if apply %>
           <p class="text-muted m-0">You've already applied to this job</p>
         <% else %>
